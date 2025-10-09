@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class SystemModule extends Model
+{
+    use HasFactory;
+    public $timestamp = true;
+
+    protected $fillable = [
+        'module',
+        'module_description',
+        'parent_id',
+        'created_by',
+        'system_disable',
+        'status',
+        'created_at',
+        'updated_at',
+    ];
+}

@@ -1,0 +1,421 @@
+/* Rajin CSS Start*/
+body {
+    background-color: #d6d8db;
+    padding: 0;
+    margin: 0;
+}
+.container{
+    margin: 0 auto;
+    padding: 0;
+}
+.row {
+    background-color: white;
+    position: relative;
+    width: 100%;
+    max-width: 1240px;
+    padding: 32px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin-right: 0px; 
+    margin-left: 0px;
+}
+p {
+    font-size: .9rem;
+}
+.font-weight-bold{
+    font-size: .8rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #201e1e;
+}
+h4{
+    font-size: 20px;
+}
+.upper-profile {
+	display: inline-block;
+	padding: 20px 0px;
+	display: flex;
+}
+.logo>img {
+    width: 72px;
+    height: 72px;
+    background-size: cover;
+    background-position: 50%;
+    border-radius: 50%;
+    background-color: #e3ebf5;
+}
+img.small-icon {
+	position: absolute;
+	border: 2px solid #f6f7f8;
+	border-radius: 2px;
+	top: 110px;
+	left: 38px;
+}
+.profile-about {
+    margin-left: 24px;
+}
+.title>img {
+    padding: 0px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+.profile-name {
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+.lower-profile {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+.lower-profile>button {
+    background-color: var(--custom-primary);
+    border-radius: 4px;
+    border: none;
+    outline: 0;
+    width: 100%;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    transition: .2s;
+    cursor: pointer;
+    color: #fff;
+    line-height: 1;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 2px 24px 0;
+    text-transform: uppercase;
+}
+.lower-profile>p{
+    margin-top: 10px;
+} 
+.profile-info {
+    width: 100%;
+    max-width: 660px;
+}
+.profile-info-head{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.profile-info-stat {
+    flex: 1 0 auto;
+    padding-right: 12px;
+    float: left;
+}
+.state-value {
+    width: 26px;
+    height: 26px;
+    background-color: var(--custom-primary);
+    border-radius: 4px;
+}
+.state-value>p {
+    padding-left: 8px;
+    color: white;
+    font-size: 1rem;
+}
+.state-title{
+    font-size: .8rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #201e1e;
+}
+.description-title {
+    padding-top: 35px;
+}
+.description-title>h6 {
+    font-size: 1.1rem;
+    color: #464343;
+}
+.stat-inner {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    
+}
+.profit_underline {
+    display: block;
+    background: white;
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid var(--custom-primary);
+}
+.profit_underline>p{
+    padding: 0;
+    margin: 0;
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+.profit_underline>.space {
+    padding: 0;
+    margin: 0;
+    width: 50%;
+    float: left;
+    border-bottom: 2px solid #ffffff;
+}
+
+.performance-nav {
+    display: flex;
+    width: 100%;
+    margin-top: 23px;
+}
+
+.p-radio {
+    margin-right: 4px;
+    margin-left: 4px;
+    border-radius: 62px;
+    width: 20%;
+    display: -webkit-inline-box;
+}
+.p-radio-label {
+    cursor: pointer;
+    transition: .2s;
+    width: 90%;
+    font-size: 12px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f6f6f6;
+    color: #212529;
+    text-align: center;
+    line-height: 1;
+    border-radius: 44px;
+    margin: -4px 5px;
+}
+input.p-radio-input {
+    display: none;
+}
+.p-radio-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s;
+    padding: 10px;
+    margin: 6px;
+}
+img.tooltip-image {
+    margin-left: 6px;
+}
+
+
+.section2 {
+    width: 100%;
+    background: none !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.col-sm-6 {
+    float:left;
+}
+.left-section {
+    background-color: white;
+    position: relative;
+    padding: 32px;
+    margin-bottom: 10px;
+    margin-top: 40px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+.right-section {
+    background-color: white;
+    position: relative;
+    padding: 32px 32px 23px 32px;
+    margin-bottom: 10px;
+    margin-top: 40px;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+.acc-details {
+    width: 100%;
+    max-width: 660px;
+}
+.acc-details-head{
+    display: flex;
+    flex-wrap: wrap;
+}
+.acc-details-stat {
+    flex: 1 0 auto;
+    padding-right: 12px;
+    float: left;
+    width: 50%;
+}
+
+#chart {
+    max-width: 100%;
+    margin: 20px auto;
+}
+.chart-nav{
+    display: flex;
+    width: 60%;
+    margin-top: 23px;
+}
+.chart-nav {
+    display: flex;
+    max-width: 400px;
+    margin-top: 23px;
+    margin: 0 auto;
+}
+.nav-container {
+    width: 100%;
+}
+.history-nav {
+    display: flex;
+    width: 100%;
+}
+.history-nav-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    float: right;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: var(--custom-primary);
+    background-color: #fff;
+    border-color: var(--custom-primary) #dee2e6 #fff;
+}
+.nav-item>a {
+    color: #212529;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+.table-borderless > tbody > tr > td,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > td,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > thead > tr > th {
+    border: none;
+    font-size: .9rem;
+    color:#4f5256;
+}
+.table {
+    margin-top: 40px;
+}
+.history-fr{
+    max-width: 150px;
+}
+th.history-fr {
+    width: 20%;
+}
+tbody>tr>td>img{
+    padding: 0;
+    margin-right: 16px;
+    float: left;
+}
+tbody>tr>td>p {
+    margin: 0;
+    float: left;
+    padding: 3px 13px;
+}
+.table-dgt {
+    width: 52px;
+    height: 24px;
+    margin: 0;
+    float: left;
+    padding: 1px 13px;
+    background-color: #c8d3e5;
+    border-radius: 5px;
+}
+.table-currency{
+    text-transform: uppercase;
+}
+th.close-time{
+    width: 50%;
+}
+th.close-time-balance{
+    width: 65%;
+}
+.history-more-button {
+    width: 150px;
+    margin: 0 auto;
+}
+.history-more-button>.lower-profile>button {
+    background-color: var(--custom-primary);
+}
+.nav-link:hover, .nav-link:focus {
+    color: var(--custom-primary);
+}
+@media screen and (max-width: 1200px) {
+    th.history-fr {
+        width: 30%;
+    }
+}
+@media screen and (max-width: 992px) {
+    th.history-fr {
+        width: 40%;
+    }
+}
+@media screen and (max-width: 768px) {
+    th.history-fr {
+        width: 60%;
+    }
+    li.nav-item {
+        font-size: .7rem;
+        width: 26%;
+    }
+    a.nav-link.active.show {
+        padding: 5px 5px;
+        font-size: .7rem;
+    }
+}
+@media screen and (max-width: 992px) {
+    .left-section {
+        background-color: white;
+        position: relative;
+        padding: 32px 32px 51px 32px;
+        margin-bottom: 10px;
+        margin-top: 40px;
+        border-radius: 5px;
+        margin-right: 5px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .left-section {
+        background-color: white;
+        position: relative;
+        padding: 32px 32px 33px 32px;
+        margin-bottom: 10px;
+        margin-top: 40px;
+        border-radius: 5px;
+        margin-right: 5px;
+    }
+}
+@media screen and (max-width: 578px) {
+    .left-section {
+        background-color: white;
+        position: relative;
+        padding: 32px 32px 33px 32px;
+        margin-bottom: 10px;
+        margin-top: 40px;
+        border-radius: 5px;
+        margin-right: 0px;
+    }
+    .right-section {
+        background-color: white;
+        position: relative;
+        padding: 32px 10px 22px 20px;
+        margin-bottom: 10px;
+        margin-top: 0px;
+        border-radius: 5px;
+        margin-left: 0px;
+    }
+}
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+    
+}
+/* Rajin CSS END */

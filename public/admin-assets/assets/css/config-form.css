@@ -1,0 +1,94 @@
+input.select2-search__field {
+    display: none;
+}
+
+.social_icon {
+    height: 1.3rem;
+    width: 1.3rem;
+    display: inline-block;
+    border: 1px solid white;
+    background: white;
+    color: blue;
+    border-radius: 3px;
+    margin-bottom: 1px;
+}
+
+.transaction_type_icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    display: inline-block;
+    border: 1px solid white;
+    background: white;
+    color: blue;
+    border-radius: 3px;
+    margin-bottom: 1px;
+}
+
+.form-check {
+    float: left;
+    margin-right: 1.53rem;
+}
+
+label.form-check-label {
+    padding: 1px;
+}
+
+.form-check-input.input-filter {
+    height: 1.4rem;
+    width: 1.3rem;
+}
+
+.social-media-filter {
+    display: inline-block;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.social-media-card {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.social-media-card {
+    padding-top: 0px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+/* .form-check.form-check-success.mb-1,
+.form-check.form-check-primary.mb-1 {
+    margin: 7px 1.18rem 5px 5px !important;
+} */
+
+.form-check.form-check-success.mb-1,
+.form-check.form-check-primary.mb-1 {
+    margin: 8px 1.18rem 7px 5px !important;
+}
+
+.clear-fixed {
+    clear: both;
+}
+
+/* footer scroll bar  */
+table.dataTable.table-responsive:not(.datatables-ajax) {
+    display: inline-table;
+}
+
+/* datatable search bar hide */
+div#finance_settings_table_filter {
+    display: none;
+}
+
+/* datatable table header before and ufter caret hide */
+table.dataTable>thead .sorting:before,
+table.dataTable>thead .sorting:after,
+table.dataTable>thead .sorting_asc:before,
+table.dataTable>thead .sorting_asc:after,
+table.dataTable>thead .sorting_desc:before,
+table.dataTable>thead .sorting_desc:after,
+table.dataTable>thead .sorting_asc_disabled:before,
+table.dataTable>thead .sorting_asc_disabled:after,
+table.dataTable>thead .sorting_desc_disabled:before,
+table.dataTable>thead .sorting_desc_disabled:after {
+    display: none;
+}

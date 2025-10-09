@@ -1,0 +1,23 @@
+/* Your Custom CSS Goes here */
+/* error message style */
+/* --------------------------------------------------------- */
+.error-msg {
+	color: #c45462;
+	/* font-weight: bold; */
+}
+
+.has-error .error-msg {
+	position: absolute;
+	bottom: -20px;
+    left: 0;
+}
+.fg.has-error {
+	margin-bottom: 2rem !important;
+    position: relative;
+}
+.select2.select2-container.select2-container--default.select2-container--below {
+	width: 100% !important;
+}
+.select2.select2-container.select2-container--default{
+	width: 100% !important;
+}

@@ -1,0 +1,46 @@
+/*date: 26-08-2033*/
+.lgrp-paginate {
+	list-style-type: none;
+}
+
+.data-list-page-item {
+	float: left;
+	padding: 4px 0.7rem;
+	text-align: center;
+	background-color: black;
+	margin-left: 0.2rem;
+	margin-bottom: 1rem;
+	color: white;
+	font-size: 13px;
+	font-family: unset;
+	border-radius: 100%;
+	height: 30px;
+	width: 30px;
+	display: flex !important;
+	justify-content: center;
+	/* justify-items: center; */
+	cursor: pointer;
+	vertical-align: middle;
+}
+.data-list-footer {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 1rem;
+}
+.data-list-total {
+	display: flex;
+	font-size: 13px;
+}
+.data-list-count {
+	margin: 0 0.5rem;
+	font-weight: bold;
+}
+.data-list-page-item.dl-active {
+	background-color: var(--custom-primary);
+}
+.data-list-page-item.dl-paging-dots {
+	width: auto;
+	height: auto;
+	background-color: inherit;
+	color: inherit;
+}

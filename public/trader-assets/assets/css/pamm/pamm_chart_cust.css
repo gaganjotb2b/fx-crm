@@ -1,0 +1,104 @@
+
+.card-row{
+
+  padding: 10px 0;
+  border-top: 1px solid #8080804d;
+  border-bottom: 1px solid #8080804d;
+}
+
+.card-border{
+ border: 2px solid #8686f9ba;
+}
+
+.font-10{
+  font-size: 10px;
+}
+
+.font-12{
+  font-size: 12px;
+}
+
+.font-15{
+  font-size: 15px;
+}
+
+.font-20{
+  font-size: 20px;
+}
+
+.z-2{
+  z-index: 2;
+}
+.float-left{
+  float: left;
+}
+
+.user-name-label-con{
+  float: left;
+  flex-flow: column;
+}
+
+.user-name,.user-name-label{
+  font-size: 12px;
+  font-weight: bold;
+  color: #f0f8ffdb;
+}
+.user-name-label{
+  font-size: 10px; 
+}
+
+.top-10,.left-10{
+  top: 10px;
+}
+
+.pamm-info-icon {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 8px;
+  color: #f0f8ffb3;
+  z-index: 2;
+}
+
+.balance-link{ 
+    background: white;
+    /* box-shadow: 1px -3px 1px;  */
+    border-radius: 5px;
+}
+
+
+.chart-overlay-btn{ 
+    bottom: 10px;
+    right: 10px;
+    background: #ffffffd6;
+    z-index: 2;
+    padding: 2px 3px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #000000bf;
+    border-radius: 3px; 
+}
+
+.layout_btn_active{
+  border: 1px solid green !important;
+}
+
+
+
+.nav-badge {
+    border: 1px solid #f0f8ff70;
+    padding: 3px;
+    width: 40px;
+    height: 30px;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 6px;
+}
+
+.position-relative{
+  position: relative;
+}
+
+.position-absolute{
+  position:absolute
+}

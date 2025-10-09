@@ -1,0 +1,891 @@
+/*================================================================================
+	Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+	Version: 2.0
+	Author: PIXINVENT
+	Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+.clear-fixed {
+    clear: both;
+}
+
+.light-layout .details-section-dark {
+    margin-left: -21px;
+    margin-top: -10px;
+    margin-right: -21px;
+    margin-bottom: -10px;
+    background-color: #f3f2f7;
+}
+
+.dark-layout .details-section-dark {
+    margin-left: -21px;
+    margin-top: -10px;
+    margin-right: -21px;
+    margin-bottom: -10px;
+    background-color: rgba(88, 104, 142, 0.3) !important;
+}
+
+.light-layout .dt-inner-table-dark tr,
+.light-layout .dt-inner-table-dark td,
+.light-layout .dt-inner-table-dark th {
+    background-color: #ffffff !important;
+}
+
+.dark-layout .dt-inner-table-dark tr,
+.dark-layout .dt-inner-table-dark td,
+.dark-layout .dt-inner-table-dark th {
+    background-color: #283046 !important;
+}
+
+.dt-inner-table-dark,
+.dt-inner-table-dark tr,
+.dt-inner-table-dark td,
+.dt-inner-table-dark th {
+
+    border-collapse: separate;
+    border-spacing: 2px 5px;
+}
+
+
+.dt-inner-table-dark tr,
+.dt-inner-table-dark td:first-child,
+.dt-inner-table-dark th:first-child {
+    border-left: 3px solid var(--custom-primary) !important;
+}
+
+table.dataTable {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border-collapse: separate !important;
+    border-spacing: 2px 5px;
+}
+
+.page-ib-admin .dataTables_filter {
+    position: absolute;
+    top: -14px;
+    right: 0;
+    float: right;
+}
+
+
+.icon-v-status {
+    width: 20px;
+    text-align: center;
+    height: 20px;
+    position: relative !important;
+}
+
+.v-check {
+    stroke-width: 6;
+    color: white;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+}
+
+.v-x {
+    stroke-width: 5;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+}
+
+.ib-com-save-icon {
+    width: 20px;
+    text-align: center;
+    height: 20px;
+    position: relative !important;
+}
+
+.ib-com-x-icon {
+    width: 20px;
+    text-align: center;
+    height: 20px;
+    position: relative !important;
+}
+
+.badge-c-danger {
+    background-color: #ea54551f;
+    padding: 2px 7px;
+    border-radius: 8px;
+}
+
+.badge-c-success {
+    background-color: #28c76f0f;
+    padding: 2px 7px;
+    border-radius: 8px;
+    color: #28c76f;
+}
+
+.light-layout .tbl-balance th,
+.light-layout .tbl-balance td,
+.light-layout .tbl-balance tr {
+    background-color: #ffffff;
+}
+
+.dark-layout .tbl-balance th,
+.dark-layout .tbl-balance td,
+.dark-layout .tbl-balance tr {
+    background-color: #283046;
+}
+
+.tbl-balance {
+    border-collapse: separate;
+    border-spacing: 2px 3px;
+}
+
+.tbl-trader-details {
+    border-collapse: separate;
+    border-spacing: 2px 3px;
+}
+
+.light-layout .tbl-trader-details tr,
+.light-layout .tbl-trader-details th,
+.light-layout .tbl-trader-details td {
+    background-color: #ffffff;
+}
+
+.dark-layout .tbl-trader-details tr,
+.dark-layout .tbl-trader-details th,
+.dark-layout .tbl-trader-details td {
+    background-color: #283046;
+}
+
+.light-layout .dt-trader-img {
+    border: 12px solid #ffffff
+}
+
+.dark-layout .dt-trader-img {
+    border: 12px solid rgba(0, 0, 0, 0.2);
+    /* margin: 2px; */
+}
+
+.dt-trader-img.ms-1 {
+    height: auto;
+    /* width: 169px; */
+}
+
+.dt-trader-img img {
+    height: 100% !important;
+}
+
+.light-layout .tab-inner-dark li:not(:last-child) {
+    border-right: 2px solid rgb(243, 242, 247);
+}
+
+.dark-layout .tab-inner-dark li:not(:last-child) {
+    border-right: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+.light-layout .tab-inner-dark li {
+    background-color: #fff;
+    width: 163px;
+}
+
+.dark-layout .tab-inner-dark li {
+    background-color: #283046;
+    width: 163px;
+}
+
+.tab-inner-dark {
+    margin-left: 2px;
+}
+
+.dt-buttons {
+    display: none;
+}
+
+.comment-actions::after {
+    display: none;
+}
+
+.ql-editor.ql-blank {
+    min-height: 150px;
+}
+
+.action-table-inner-dark {
+    border-collapse: separate;
+    border-spacing: 7px 7px;
+}
+
+.light-layout .action-table-inner-dark td,
+.light-layout .action-table-inner-dark tr {
+    background-color: #ffffff;
+    border-left: 3px solid var(--custom-primary) !important;
+}
+
+.dark-layout .action-table-inner-dark td,
+.dark-layout .action-table-inner-dark tr {
+    background-color: #283046;
+    border-left: 3px solid var(--custom-primary) !important;
+}
+
+/* ib-admin-deposit */
+
+.comment-actions::after {
+    display: none;
+}
+
+.ql-editor.ql-blank {
+    min-height: 150px;
+}
+
+.action-table-inner-dark {
+    border-collapse: separate;
+    border-spacing: 7px 7px;
+}
+
+.action-table-inner-dark td,
+.action-table-inner-dark tr {
+    background-color: #283046;
+    border-left: 3px solid var(--custom-primary) !important;
+}
+
+.main-menu .navbar-header .navbar-brand .brand-logo img {
+    max-width: 100% !important;
+}
+
+.more-actions.dropdown-toggle.dropdown-toggle-split::after {
+    display: none;
+}
+
+.input-group.mb-1.ib-com-cureency {
+    min-width: 150px;
+}
+
+.input-group.mb-1.ib-com-timing {
+    min-width: 150px;
+}
+
+/* START: tree style */
+/* ------------------------------------------------------------------------------- */
+.s-ib-email {
+    border-left: 9px solid #08c;
+}
+
+#jstree {
+    padding-left: 2rem;
+}
+
+.jstree-anchor {
+    height: auto !important;
+    padding: 0.5rem;
+    /* background: rgb(241, 242, 252); */
+    margin-top: 6px;
+    width: 350px;
+    border-left: 8px solid #08c;
+}
+
+.jstree-anchor {
+    color: #08c !important
+}
+
+.trader-tree-item a {
+    border-color: #65c07e !important;
+    color: #65c07e !important;
+}
+
+.tree-more-info {
+    float: right;
+    font-size: 24px;
+    transition: 1s all ease;
+}
+
+/* for roots */
+/* --------------------------------------------------------------- */
+.light-layout #parent .more-info-con {
+    width: 375px;
+    margin-left: 0;
+    background-color: #F2F2F2;
+    padding: 1rem;
+}
+
+.dark-layout #parent .more-info-con {
+    width: 375px;
+    margin-left: 0;
+    background-color: #36436A91;
+    padding: 1rem;
+}
+
+/* for chileds */
+/* --------------------------------------------------------------- */
+.light-layout .more-info-con {
+    width: 350px;
+    margin-left: 1.72rem;
+    background-color: #F2F2F2;
+    padding: 1rem;
+}
+
+.dark-layout .more-info-con {
+    width: 350px;
+    margin-left: 1.72rem;
+    background-color: #36436A91;
+    padding: 1rem;
+}
+
+.light-layout .jstree-anchor {
+    height: auto !important;
+    padding: 0.5rem;
+    background: rgb(241, 242, 252);
+    margin-top: 6px;
+    width: 350px;
+    border-left: 8px solid #08c;
+    position: relative;
+}
+
+.dark-layout .jstree-anchor {
+    height: auto !important;
+    padding: 0.5rem;
+    background: #161D31;
+    margin-top: 6px;
+    width: 350px;
+    border-left: 8px solid #08c;
+    position: relative;
+}
+
+.jstree-default .jstree-clicked {
+    background: #25474583 !important;
+    border-radius: 2px;
+    box-shadow: none !important;
+    position: relative;
+}
+
+.jstree-hovered {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+.rotate-caret-tree {
+    transform: rotateX(180deg);
+}
+
+.tree-info-row div:nth-child(1) {
+    margin-right: 1rem;
+    opacity: 0.7;
+}
+
+.tree-info-row {
+    display: flex;
+}
+
+.tree-info-row div:nth-child(2) {
+    margin-right: 1rem;
+}
+
+.tree-color-ib {
+    color: #0088CC;
+}
+
+.tree-color-trader {
+    color: #65C07E;
+}
+
+.s-ib-email {
+    border-left: 9px solid #08c;
+    width: 375px;
+}
+
+.jstree-leaf a .jstree-themeicon {
+    display: none;
+}
+
+.jstree-default .jstree-node,
+.jstree-default .jstree-icon {
+    background-image: url(32px.png);
+}
+
+.jstree-icon.jstree-ocl {
+    height: 2px !important;
+    background-color: #08c;
+    margin-top: 22px;
+}
+
+.jstree-node {
+    border-left: 2px solid #08c;
+    margin-left: 4rem !important;
+}
+
+.jstree-themeicon {
+    background-position: center !important;
+    background-size: contain !important;
+    opacity: 0.5;
+}
+
+.jstree-anchor>.jstree-themeicon {
+    margin-right: 1rem;
+}
+
+.s-jstree-root-icon {
+    width: 32px;
+    display: block;
+    height: 24px;
+    background-size: contain !important;
+    cursor: pointer;
+    opacity: 0.56;
+    background: rgba(0, 0, 0, 0) url("../../assets/images/jstree-icon/minus.png") no-repeat scroll center center;
+}
+
+.s-ib-email {
+    border-left: 8px solid #08c;
+    width: 375px;
+    display: flex;
+    padding: 6px !important;
+    margin-bottom: 0 !important;
+}
+
+.s-jstree-root-caret {
+    width: 32px;
+    display: block;
+    float: right;
+    font-size: 23px;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.s-ib-email-inner {
+    width: 100%;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+.tree-more-info {
+    width: 32px;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    height: 35px;
+    /* background-color: antiquewhite; */
+    top: 0;
+    padding-top: 6px;
+}
+
+.root-mor-info-con {
+    margin-left: 0;
+    width: 375px;
+}
+
+.s-jstree-more-btn {
+    display: flex;
+    color: #0000008c;
+    cursor: pointer;
+}
+
+.s-tdr-more-ac-icon {
+    width: 20px;
+    background: rgba(0, 0, 0, 0) url("../../assets/images/jstree-icon/plus.png") no-repeat scroll center center;
+    background-size: 14px;
+    opacity: 0.8;
+}
+
+.s-js-tree-ib-color {
+    color: #08c;
+}
+
+.s-tree-ib-indicator {
+    display: flex;
+}
+
+.s-tree-ib-indicator {
+    display: flex;
+    color: #08c;
+}
+
+.s-tree-indicator-con {
+    display: flex;
+}
+
+.s-tree-trader-indicator {
+    display: flex;
+    color: #65c07e;
+}
+
+.s-js-tree-ib-color {
+    color: #08c;
+    background: #08c;
+    width: 19;
+    height: 12px;
+    margin-top: 4px;
+    margin-right: 3px;
+}
+
+.s-js-tree-trader-color {
+    background: #65c07e;
+    width: 24;
+    height: 13;
+    margin-top: 4px;
+    margin-right: 3px;
+}
+
+.s-tree-accnotfnd {
+    /* border: 1px solid red; */
+    padding: 1rem;
+    color: #a61b1b;
+    border-radius: 3px;
+}
+
+.rounded.ms-1.dt-trader-img.img-finance {
+    width: 161px !important;
+    height: 181px !important;
+}
+
+.client-type-group .select2-selection.select2-selection--single {
+    width: 200px !important;
+}
+
+.dropzone .dz-message {
+    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--custom-primary);
+    display: flex;
+    justify-content: center;
+    align-items: first baseline;
+    margin: 0;
+    padding-top: 1rem;
+}
+
+.dropzone {
+    min-height: 156px;
+    border: 2px dashed var(--custom-primary);
+    background: #f8f8f8;
+    position: relative;
+}
+
+.dropzone .dz-message {
+    font-size: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--custom-primary);
+    display: flex;
+    justify-content: center;
+    align-items: first baseline;
+    margin: 0;
+}
+
+#front-part-img-col .dropzone .dz-message,
+#back-part-img-col .dropzone .dz-message,
+#address-proof-img-col .dropzone .dz-message {
+    font-size: 2rem;
+    position: inherit;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--custom-primary);
+    display: flex;
+    justify-content: center;
+    align-items: first baseline;
+    margin: 0;
+}
+
+.dropzone .dz-message::before {
+    content: '';
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237367f0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-download'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'%3E%3C/path%3E%3Cpolyline points='7 10 12 15 17 10'%3E%3C/polyline%3E%3Cline x1='12' y1='15' x2='12' y2='3'%3E%3C/line%3E%3C/svg%3E");
+    font-size: 40px;
+    position: absolute;
+    top: 5rem;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    line-height: 1;
+    z-index: 2;
+    color: var(--custom-primary);
+    text-indent: 0px;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+#front-part-img-col .dropzone .dz-message::before,
+#back-part-img-col .dropzone .dz-message::before,
+#address-proof-img-col .dropzone .dz-message::before {
+    content: '';
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237367f0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-download'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'%3E%3C/path%3E%3Cpolyline points='7 10 12 15 17 10'%3E%3C/polyline%3E%3Cline x1='12' y1='15' x2='12' y2='3'%3E%3C/line%3E%3C/svg%3E");
+    font-size: 80px;
+    position: absolute;
+    top: 4rem;
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    line-height: 1;
+    z-index: 2;
+    color: var(--custom-primary);
+    text-indent: 0px;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    display: none;
+}
+
+.front-part-img-label,
+.back-part-img-label,
+.address-proof-img-label {
+    font-size: 1.5rem;
+    position: absolute;
+}
+
+.img.img-thumbnail.img-front-part-u,
+.img.img-thumbnail.img-back-part-u,
+.img.img-thumbnail.img-address-proof-u {
+    margin-top: 3rem;
+}
+
+/* banner setup style */
+/* ==================================================================== */
+.dz-message-label {
+    font-size: 1.4rem;
+}
+
+.img-ad-banner {
+    width: auto !important;
+    height: 100px !important;
+    max-width: 243px;
+}
+
+.buttons-banners {
+    position: absolute;
+    right: -64px;
+    /* background-color: rgba(0,0,0,0.3); */
+    top: 0;
+    bottom: 0;
+    padding: 6px;
+}
+
+/* error message style */
+/* --------------------------------------------------------- */
+.error-msg {
+    color: #c45462;
+    font-weight: bold;
+}
+
+.has-error .error-msg {
+    position: absolute;
+    bottom: -20px;
+}
+
+/* data table style */
+/* -------------------------------------------------- */
+.dataTables_info {
+    padding-left: 1rem;
+}
+
+.img-trader-admin {
+    width: 219px;
+}
+
+.img.img-fluid.img-gender-male {
+    width: 32px;
+}
+
+.feather.feather-users.font-large-1.mb-75.other-gender-icon {
+    width: 22px !important;
+    height: 22px !important;
+}
+
+.mb-1.fg.has-error {
+    margin-bottom: 2rem !important;
+}
+
+.data_of_birth.error-msg {
+    left: 0;
+}
+
+.sorting_disabled.sorting_desc::before,
+.sorting_disabled.sorting_desc::after {
+    display: none !important;
+}
+
+.btn-structure-save {
+    padding: 0 !important;
+}
+
+.dropzone .dz-preview .dz-remove {
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    top: -33px;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    left: 0;
+}
+
+.icon-trd {
+    width: 45px;
+    text-align: center;
+    height: 45px;
+    position: relative !important;
+}
+
+.datatables-ajax tr,
+.datatables-ajax td {
+    background-color: #f3f2f7;
+    vertical-align: middle;
+    border-bottom: none;
+}
+
+.light-layout .datatable-inner tr,
+.light-layout .datatable-inner th,
+.light-layout .datatable-inner td {
+    background-color: #fff !important;
+    vertical-align: middle;
+    border-bottom: none;
+}
+
+.light-layout .modal .datatable-inner {
+    border-collapse: separate;
+    border-spacing: 3px;
+}
+
+.light-layout .modal .datatable-inner tr,
+.light-layout .modal .datatable-inner th,
+.light-layout .modal .datatable-inner td {
+    background-color: #f3f2f7 !important;
+    vertical-align: middle;
+    border-bottom: none;
+}
+
+.dark-layout .datatables-ajax tr,
+.dark-layout .datatables-ajax td {
+    background-color: #343d55;
+    vertical-align: middle;
+    border-bottom: none;
+}
+
+.dark-layout .table td,
+.dark-layout .table th {
+    color: #b4b7bd;
+    border-color: #3b4253 !important;
+    background-color: #3e4a66;
+}
+
+.icon-trd {
+    width: 45px;
+    text-align: center;
+    height: 45px;
+    position: relative !important;
+}
+
+.btn-settings-tab2,
+.btn-comment-tab2,
+.btn-kyc-tab2 {
+    display: none !important;
+}
+
+@media only screen and (max-width: 1440px) {
+
+    .btn-settings-tab1,
+    .btn-comments-tab1 {
+        display: none;
+    }
+
+    .btn-settings-tab2,
+    .btn-comment-tab2 {
+        display: block !important;
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+
+    .btn-settings-tab1,
+    .btn-comments-tab1,
+    .btn-kyc-tab1 {
+        display: none;
+    }
+
+    .btn-settings-tab2,
+    .btn-comment-tab2,
+    .btn-kyc-tab2 {
+        display: block !important;
+    }
+
+}
+
+.bg-primary {
+    background-color: var(--custom-primary) !important;
+}
+
+.dark-layout .dash-admin-tbl-color .table td,
+.dark-layout .dash-admin-tbl-color .table th {
+    color: #b4b7bd;
+    border-color: #3b4253 !important;
+    background-color: #283046;
+    /* background-color: var(--custom-primary) !important; */
+}
+
+.nav-tabs .nav-link::after {
+    background: linear-gradient(30deg, var(--custom-primary), rgba(115, 103, 240, 0.5));
+}
+
+.page-ib-admin .table.table-responsive.tbl-balance th,
+.page-ib-admin .tbl-trader-details th {
+    border: none;
+}
+
+.dark-layout .page-ib-admin .table td,
+.dark-layout .page-ib-admin .table th {
+    color: #b4b7bd;
+    border-color: #3b4253 !important;
+    background-color: #323c59;
+}
+
+.dark-layout .page-trader-admin .table td,
+.dark-layout .page-trader-admin .table th {
+    color: #b4b7bd;
+    border-color: #3b4253 !important;
+    background-color: #323c59;
+}
+
+.dark-layout .page-bank-list .tbl-bank-list th {
+    border: none;
+}
+
+.dark-layout .page-bank-list .tbl-bank-list {
+    border-collapse: separate;
+    border-spacing: 3px;
+}
+
+/* ib tree */
+.ib-tree-admin .select2-container {
+    width: auto !important;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    box-sizing: border-box;
+    width: 83% !important;
+}
+
+.dark-layout .master-ib-admin .tbl-balance th,
+.dark-layout .master-ib-admin .tbl-balance td,
+.dark-layout .master-ib-admin .tbl-balance tr {
+    background-color: #283046;
+    /* background-color: inherit; */
+    border: none;
+}
+
+.dark-layout .master-ib-admin .tbl-trader-details td,
+.dark-layout .master-ib-admin .tbl-trader-details th {
+    color: #b4b7bd;
+    border-color: #3b4253 !important;
+    background-color: #283046;
+    border: none;
+}
+
+.border-start-success {
+    border-left: 1px solid #28c76f;
+}
+
+.page-ib-admin .p-1.waves-effect.mb-0.bg-light-primary.border-4.border-start-success {
+    margin-left: 3px;
+}

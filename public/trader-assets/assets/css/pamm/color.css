@@ -1,0 +1,24 @@
+
+/* light color  */
+:root {
+    --primary-color: #3599fd; 
+    --font-color: #000; 
+    --hover-color: rgb(110, 110, 110); 
+    --background-color: #e7ecf8;
+    --card-color: #fff; 
+    --dataTableText-color: rgb(48, 47, 47); 
+    --border-color: #ddd; 
+}
+
+
+
+/* dark color  */
+.dark-version {
+    --primary-color: #3599fd; 
+    --font-color: rgb(198, 198, 198); 
+    --hover-color: rgb(110, 110, 110); 
+    --background-color: #181821;
+    --card-color: ##111322;
+    --dataTableText-color: rgb(138, 138, 138); 
+    --border-color: rgb(68, 68, 68); 
+}

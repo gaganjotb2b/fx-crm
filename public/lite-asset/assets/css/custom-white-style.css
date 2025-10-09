@@ -1,0 +1,201 @@
+.clear-fixed {
+    clear: both;
+}
+
+.app-sidebar .logo .logo-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    background: url("{{ get_admin_logo() }}") no-repeat;
+    background-position: center left;
+    background-size: 40px;
+    display: block;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 30px;
+    float: left;
+    padding-left: 45px;
+    line-height: 40px;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.al-error-solve {
+    position: relative;
+}
+
+.al-error-solve .error-msg {
+    position: absolute;
+    bottom: -21px;
+    left: 0;
+
+}
+
+.btn-close span {
+    display: none;
+}
+
+.app-sidebar .logo .logo-icon {
+    width: 100%;
+    background: inherit;
+    padding-left: 0;
+}
+
+.app-sidebar .logo img {
+    width: 80%;
+    height: 80%;
+}
+
+.app-sidebar .logo .logo-icon:hover {
+    padding-left: 0;
+}
+
+.app-sidebar .logo .sidebar-user-switcher a {
+    display: block;
+    overflow: visible;
+}
+
+.app-sidebar .logo .logo-icon:hover+.sidebar-user-switcher {
+    margin-right: 0;
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav-link.mb-0.px-0.py-1.active {
+    opacity: 1;
+    background: #fff !important;
+    color: var(--custom-primary);
+}
+
+.nav-link.mb-0.px-0.py-1.active {
+    opacity: 1 !important;
+    background: var(--custom-primary) !important;
+    /*background: var(--bs-blue) !important;*/
+    color: #fff !important;
+}
+
+.app-sidebar .logo {
+    overflow: hidden;
+    padding: 45px 28px;
+    position: relative;
+    /* background-color: #21336e; */
+    -webkit-transition: opacity .2s ease-in-out;
+    -moz-transition: opacity .2s ease-in-out;
+    -o-transition: opacity .2s ease-in-out;
+    transition: opacity .2s ease-in-out;
+}
+
+.app.sidebar-hidden .app-sidebar .logo.hidden-sidebar-logo {
+    position: fixed;
+    width: 280px;
+    transform: translateX(310px);
+    height: 70px;
+    top: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    background-color: #21336e;
+    opacity: 1;
+    box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);
+    -webkit-box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);
+    -moz-box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);
+}
+
+.app-sidebar .logo img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+@media only screen and (max-width: 1000px) {
+    .breadcrumb.breadcrumb-container {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .app-sidebar .logo {
+        padding: 35px 27px;
+    }
+}
+
+.nav-link.logoute_class.language-dropdown-toggle {
+    background: #fce3e5;
+    color: #ff4857;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.app-content {
+    min-height: calc(100% - 9.35rem);
+}
+
+/*a#languageDropDown {*/
+/*    margin-top: 6px !important;*/
+/*}*/
+
+.bg-gradient-primary {
+    background-color: #407ef6;
+}
+
+.btn.bg-gradient-primary:hover {
+    background-color: #407ef6;
+    /* border-color: var(--custom-primary); */
+}
+
+.data-list-footer.d-block {
+    display: flex !important;
+}
+
+@media only screen and (max-width: 412px) {
+    div.dataTables_wrapper div.dataTables_length select {
+        width: 100px;
+        display: inline-block;
+    }
+
+    .demo-ac-l-col {
+        display: none;
+    }
+
+    #datatables-ajax_filter {
+        width: 100px !important;
+        float: right;
+    }
+
+    #datatables-ajax_filter input {
+        width: 100px !important;
+        float: right;
+    }
+
+    #datatables-ajax_length {
+        width: 100px !important;
+    }
+
+    .dt-resp-custom {
+        position: relative !important;
+        overflow-y: hidden;
+    }
+
+    #deposit_report_datatable_info,
+    #withdraw_report_datatable_info,
+    #external_report_datatable_info,
+    #internal_report_datatable_info,
+    #trading_report_datatable_info {
+        display: none;
+    }
+
+    #deposit_report_datatable_length,
+    #withdraw_report_datatable_length,
+    #external_report_datatable_length,
+    #internal_report_datatable_length,
+    #trading_report_datatable_length {
+        text-align: left;
+    }
+}

@@ -1,0 +1,248 @@
+/* *********************************************
+dashboard
+************************************************/
+.overview-chart {
+    min-height: 373px;
+}
+
+.page-dashboard .widget-bank-card .widget-bank-card-visa .widget-bank-card-logo {
+    filter: inherit;
+    background: url("{{ asset(avatar()) }}") no-repeat;
+    background-size: contain;
+    width: 52px;
+    height: 52px;
+}
+
+.page-dashboard .widget-bank-card .widget-bank-card-visa::after {
+    position: absolute;
+    bottom: 5px;
+    right: 30px;
+    content: '';
+    display: block;
+    height: 80px;
+    width: 80px;
+    background: url("{{ AllFunctionService::kyc_status_img(auth()->user()->id) }}") no-repeat;
+    background-size: 80px 60px;
+    background-position: bottom right;
+    filter: none;
+}
+
+.page-dashboard .progress {
+    height: .5rem;
+}
+
+.page-dashboard .list-group-item {
+    border: none;
+}
+
+@media only screen and (max-width: 480px) {
+
+    .page-dashboard .data-list-footer {
+        display: flex !important;
+        flex-direction: column;
+        text-align: center;
+        align-content: center;
+        align-items: center;
+    }
+
+    .page-dashboard .lgrp-paginate {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        margin-top: 5px;
+    }
+
+    .page-dashboard .nav-link {
+        padding: 0rem 1rem;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .page-dashboard .d-flex.list-row.border-bottom.p-2.justify-content-around .list-col:nth-child(2) {
+        display: none;
+    }
+
+    .page-dashboard .d-flex.list-row.border-bottom.p-2.justify-content-around .list-col:nth-child(3) {
+        display: none;
+    }
+
+    .page-dashboard #data-list .list-group-item {
+        padding: 0;
+    }
+
+    .page-dashboard .ac-card-body {
+        padding: 0 !important
+    }
+}
+
+.page-dashboard a {
+    text-decoration: none;
+}
+
+.page-dashboard .alert a,
+.page-profile-overview .alert a {
+    color: aliceblue !important;
+}
+
+.alert.alert-warning a {
+    color: #fff;
+}
+
+/********************************************************
+ profile overview 
+ *******************************************************/
+.page-header {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: 50%;
+    min-height: 100px;
+    border-radius: 10px;
+}
+
+.mt-n6 {
+    margin-top: -4rem !important;
+}
+
+.mask {
+    position: absolute;
+    background-size: cover;
+    background-position: center center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.bg-gradient-primary {
+    background-color: var(--custom-primary);
+}
+
+/* *****************************************
+page profile overview
+****************************************** */
+.page-profile-overview .fa-spin {
+    animation: rotation 1s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+.page-profile-overview .profile_info_icon {
+    background: var(--custom-primary) !important;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.page-profile-overview .profile_info_icon {
+    background: var(--custom-primary);
+}
+
+.page-profile-overview .border-radius-lg {
+    border-radius: 5px;
+}
+
+.icon-container {
+    box-shadow: none !important;
+}
+
+.btn-link.focus,
+.btn-link:focus,
+.btn-link:hover,
+.btn-link:not(:disabled):not(.disabled).active,
+.page-profile-overview .btn-link:not(:disabled):not(.disabled):active,
+.page-profile-overview .show>.btn-link.dropdown-toggle {
+    color: #2482e0;
+    background-color: inherit;
+    border-color: #fff;
+}
+
+/* configure secondary buttons */
+.bg-gradient-secondary {
+    color: #4d546b;
+    background-color: #fceace;
+    border-color: #fceace;
+}
+
+.custom-height-con {
+    min-height: calc(100vh - 200px);
+}
+
+/* ib tree */
+.bg-gray-100 #parent .more-info-con {
+    width: 375px;
+    margin-left: 0;
+    background-color: #e8f2fa;
+    padding: 1rem;
+}
+
+.bg-gray-100 .more-info-con {
+    width: 350px;
+    margin-left: 1.5rem;
+    background-color: #D9E9F799;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+
+.root-mor-info-con {
+    margin-left: 0;
+    width: 375px;
+}
+
+.tree-color-ib {
+    color: var(--custom-primary);
+}
+
+/* datatable style */
+.datatables-ajax {
+    border-collapse: separate;
+}
+
+.datatables-ajax th {
+    background-color: #edf0f4;
+}
+
+.datatables-ajax td {
+    background-color: #e7ecf8;
+}
+
+.datatables-ajax tr,
+.datatables-ajax th:first-child {
+    border-left: 3px solid;
+    border-left-color: #40475c !important;
+}
+
+.datatables-ajax tr,
+.datatables-ajax td:first-child {
+    border-left: 3px solid;
+    border-left-color: var(--custom-primary) !important;
+}
+
+table.dataTable {
+    clear: both;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+    border-collapse: separate !important;
+    border-spacing: 3px 4px;
+}
+
+.export-button-con {
+    border-bottom: none !important;
+}
+
+.border-0 {
+    border: none !important;
+}

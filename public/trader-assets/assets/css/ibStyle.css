@@ -1,0 +1,10 @@
+.dataTables_length .form-select {
+    background-position: right 3px center;
+    background-size: 12px 12px;
+    padding-right: 1.25rem;
+    margin-top: 3px;
+}
+
+.dataTables_filter .form-control {
+    margin: 3px 3px 0;
+}

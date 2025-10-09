@@ -1,0 +1,82 @@
+.input-rang-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 109%;
+}
+
+.input-rang-group-text {
+    display: flex;
+    align-items: center;
+    padding: 0.453rem 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.45;
+    color: #6e6b7b;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #fff;
+    border: 1px solid #d8d6de;
+}
+
+.rang-min {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+
+.min {
+    padding: 0 !important;
+    margin: 0 !important;
+    border-top: 1px solid #d8d6de;
+    border-right: none;
+    border-bottom: 1px solid #d8d6de;
+    border-left: none;
+    text-align: center;
+}
+
+.max {
+    padding: 0 !important;
+    margin: 0 !important;
+    border-top: 1px solid #d8d6de;
+    border-right: none;
+    border-bottom: 1px solid #d8d6de;
+    border-left: none;
+    text-align: center;
+}
+
+.rang-max {
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.input-rang-group-date-logo {
+    display: flex;
+    align-items: center;
+    padding: 0.453rem 0.6rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.45;
+    color: #6e6b7b;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #fff;
+    border: 1px solid #d8d6de;
+}
+
+#deposit_report_datatable>tbody>tr>td {
+    padding-left: 24px !important;
+}
+
+#deposit_report_datatable>tbody>tr:last-child {
+    border-bottom: 2px solid currentColor;
+}
+
+/* datatable footer tr border top */
+#deposit_report_datatable>tfoot>tr>th {
+    border-top: 1px solid #E9ECEF !important;
+}
+
+#deposit_report_datatable>tfoot>tr>th {
+    padding-left: 24px !important;
+}

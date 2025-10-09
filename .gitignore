@@ -1,7 +1,3 @@
 /vendor
 .env*
 /public/Uploads/kyc
-
-/public/admin-assets
-
-/public/bootstrap-multiselect-master

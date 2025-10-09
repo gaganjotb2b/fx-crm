@@ -1,0 +1,1234 @@
+@extends(App\Services\systems\AdminLayoutControllService::admin_layout())
+@section('title', 'Manage All - Manager Hierarchy')
+
+@section('vendor-css')
+<link rel="stylesheet" type="text/css" href="{{ asset('admin-assets/app-assets/vendors/css/extensions/sweetalert2.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin-assets/app-assets/vendors/css/forms/select/select2.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin-assets/app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css') }}">
+@stop
+
+@section('page-css')
+<link rel="stylesheet" type="text/css" href="{{ asset('admin-assets/app-assets/css/plugins/extensions/ext-component-sweet-alerts.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('admin-assets/app-assets/css/plugins/forms/pickers/form-flat-pickr.css') }}">
+<style>
+    .tree-container {
+        background: #fff;
+        border: 2px solid #ff8e5c;
+        border-radius: 8px;
+        padding: 20px;
+        min-height: 400px;
+        box-shadow: 0 4px 12px rgba(255, 142, 92, 0.15);
+    }
+    
+    .admin-manager-item {
+        background: #fff;
+        border: 1px solid #ff8e5c;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(255, 142, 92, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .admin-manager-item:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(255, 142, 92, 0.2);
+    }
+    
+    .admin-manager-header {
+        padding: 15px 20px;
+        background: #ff8e5c;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .admin-manager-header:hover {
+        background: #e67e4c;
+    }
+    
+    .admin-manager-name {
+        font-weight: 600;
+        font-size: 16px;
+    }
+    
+    .expand-btn {
+        background: rgba(255,255,255,0.2);
+        border: 1px solid rgba(255,255,255,0.3);
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    .expand-btn:hover {
+        background: rgba(255,255,255,0.3);
+        transform: scale(1.05);
+    }
+    
+    .expand-btn.expanded {
+        transform: rotate(45deg) scale(1.05);
+    }
+    
+    .country-managers-container {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .country-managers-container.expanded {
+        max-height: 1000px;
+    }
+    
+    .country-manager-item {
+        padding: 0;
+        border-bottom: 1px solid #f0f0f0;
+        background: #fafafa;
+    }
+    
+    .country-manager-item:last-child {
+        border-bottom: none;
+    }
+    
+    .country-manager-header {
+        padding: 12px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        background: #ff8e5c;
+        color: white;
+        transition: all 0.3s ease;
+    }
+    
+    .country-manager-header:hover {
+        background: #e67e4c;
+    }
+    
+    .country-manager-name {
+        font-weight: 500;
+        color: white;
+        font-size: 14px;
+    }
+    
+    .managers-container {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .managers-container.expanded {
+        max-height: 1000px;
+    }
+    
+    .manager-item {
+        padding: 0;
+        border-bottom: 1px solid #f0f0f0;
+        background: #fff;
+        transition: all 0.2s ease;
+    }
+    
+    .manager-item:hover {
+        background: #fafafa;
+    }
+    
+    .manager-item:last-child {
+        border-bottom: none;
+    }
+    
+    .manager-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px 12px 40px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: #ff8e5c;
+        color: white;
+    }
+    
+    .manager-header:hover {
+        background: #e67e4c;
+    }
+    
+    .manager-name {
+        font-weight: 400;
+        color: white;
+        font-size: 14px;
+    }
+    
+    .add-new-btn {
+        background: #ff8e5c;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 6px rgba(255, 142, 92, 0.3);
+    }
+    
+    .add-new-btn:hover {
+        background: #e67e4c;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(255, 142, 92, 0.4);
+    }
+    
+    .no-country-managers {
+        padding: 20px;
+        text-align: center;
+        color: #666;
+        font-style: italic;
+        background: #fafafa;
+        border-radius: 6px;
+        margin: 10px;
+    }
+    
+    /* Statistics Cards */
+    .stats-container {
+        background: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .stats-report-container {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        background: #f8f9fa;
+        border-radius: 0 0 8px 8px;
+    }
+    
+    .stats-report-container.expanded {
+        max-height: 800px;
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .stat-card {
+        background: linear-gradient(135deg, #ff8e5c 0%, #e67e4c 100%);
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(255, 142, 92, 0.3);
+    }
+    
+    .stat-card h3 {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0 0 5px 0;
+    }
+    
+    .stat-card p {
+        margin: 0;
+        font-size: 14px;
+        opacity: 0.9;
+    }
+    
+    /* Revenue Reports */
+    .revenue-container {
+        background: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .revenue-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .date-range-picker {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .revenue-chart {
+        height: 300px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+    }
+    
+    /* Modal Styles */
+    .modal-header {
+        background: #ff8e5c;
+        color: white;
+        border-radius: 6px 6px 0 0;
+    }
+    
+    .modal-title {
+        color: white;
+        font-weight: 600;
+    }
+    
+    .close {
+        color: white;
+        opacity: 0.9;
+        transition: all 0.3s ease;
+    }
+    
+    .close:hover {
+        color: white;
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    
+    .modal-content {
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        border: none;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .modal-footer {
+        border-top: 1px solid #e9ecef;
+        padding: 15px 20px;
+    }
+    
+    /* Loading Spinner */
+    .spinner-border {
+        border-color: #ff8e5c;
+        border-right-color: transparent;
+    }
+    
+    /* Select2 Customization */
+    .select2-container--default .select2-selection--multiple {
+        border: 2px solid #e9ecef;
+        border-radius: 6px;
+        min-height: 40px;
+    }
+    
+    .select2-container--default.select2-container--focus .select2-selection--multiple {
+        border-color: #ff8e5c;
+        box-shadow: 0 0 0 0.2rem rgba(255, 142, 92, 0.25);
+    }
+    
+    .select2-container--default .select2-selection--multiple .select2-selection__choice {
+        background: #ff8e5c;
+        border: none;
+        border-radius: 12px;
+        color: white;
+        padding: 4px 10px;
+        margin: 3px;
+    }
+    
+    /* Card Header Enhancement */
+    .card-header {
+        background: #ff8e5c;
+        color: white;
+        border-radius: 8px 8px 0 0;
+        border: none;
+    }
+    
+    .card-title {
+        color: white;
+        font-weight: 600;
+    }
+    
+    .card {
+        border-radius: 8px;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        border: none;
+    }
+    
+    /* Alert Enhancement */
+    .alert-info {
+        background: #ff8e5c;
+        border: none;
+        color: white;
+        border-radius: 8px;
+    }
+    
+    .alert-info h6 {
+        color: white;
+        font-weight: 600;
+    }
+    
+    /* Button Enhancements */
+    .btn-primary {
+        background: #ff8e5c;
+        border-color: #ff8e5c;
+    }
+    
+    .btn-primary:hover {
+        background: #e67e4c;
+        border-color: #e67e4c;
+    }
+    
+    /* Type Tags */
+    .type-tag {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-left: 8px;
+        color: white;
+        background: rgba(255,255,255,0.2);
+        border: 1px solid rgba(255,255,255,0.3);
+    }
+    
+    .admin-tag {
+        background: #ff6b35;
+        border-color: #ff6b35;
+    }
+    
+    .country-tag {
+        background: #ff8e5c;
+        border-color: #ff8e5c;
+    }
+    
+    .account-tag {
+        background: #ffa726;
+        border-color: #ffa726;
+    }
+</style>
+@stop
+
+@section('content')
+<div class="app-content content">
+    <div class="content-overlay"></div>
+    <div class="header-navbar-shadow"></div>
+    <div class="content-wrapper container-fluid p-0">
+        <div class="content-header row">
+            <div class="content-header-left col-md-9 col-12 mb-2">
+                <div class="row breadcrumbs-top">
+                    <div class="col-12">
+                        <h2 class="content-header-title float-start mb-0">Manager Hierarchy Management</h2>
+                        <div class="breadcrumb-wrapper">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Manager Settings</a></li>
+                                <li class="breadcrumb-item active">Manage All</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-body">
+            <!-- Hierarchy Information -->
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="alert alert-info">
+                        <h6><i data-feather="info"></i> Manager Hierarchy Structure</h6>
+                        <p class="mb-2">Click the + button next to Admin Managers to view their assigned Country Managers and detailed statistics. Each level shows comprehensive financial data and user statistics.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">
+                                <i data-feather="users"></i> Admin Manager Hierarchy
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="tree-container" id="adminManagerTree">
+                                <!-- Admin Managers will be loaded here -->
+                                <div class="text-center">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    <p class="mt-2">Loading Admin Managers...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add New Country Manager Modal -->
+<div class="modal fade" id="addCountryManagerModal" tabindex="-1" aria-labelledby="addCountryManagerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addCountryManagerModalLabel">Add Country Managers</h5>
+                <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label class="form-label">Select Country Managers (Multiple Selection)</label>
+                    <select class="form-control" id="unassignedCountryManagers" multiple>
+                        <!-- Unassigned Country Managers will be loaded here -->
+                    </select>
+                    <small class="form-text text-muted">Select multiple Country Managers to assign</small>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="assignCountryManagers">Assign Selected</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add New Manager Modal -->
+<div class="modal fade" id="addManagerModal" tabindex="-1" aria-labelledby="addManagerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addManagerModalLabel">Add Account Managers</h5>
+                <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label class="form-label">Select Account Managers (Multiple Selection)</label>
+                    <select class="form-control" id="unassignedManagers" multiple>
+                        <!-- Unassigned Managers will be loaded here -->
+                    </select>
+                    <small class="form-text text-muted">Select multiple Account Managers to assign</small>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="assignManagers">Assign Selected Account Managers</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection
+
+@section('page-js')
+<script src="{{ asset('admin-assets/app-assets/vendors/js/extensions/sweetalert2.all.min.js') }}"></script>
+<script src="{{ asset('admin-assets/app-assets/vendors/js/forms/select/select2.full.min.js') }}"></script>
+<script src="{{ asset('admin-assets/app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js') }}"></script>
+
+<script>
+$(document).ready(function() {
+    let currentAdminManagerId = null;
+    let currentCountryManagerId = null;
+    
+    // Load Admin Managers on page load
+    loadAdminManagers();
+    
+    // Initialize Select2 for the modal dropdowns
+    $('#unassignedCountryManagers').select2({
+        placeholder: "Select Country Managers",
+        allowClear: true,
+        closeOnSelect: false
+    });
+    
+    $('#unassignedManagers').select2({
+        placeholder: "Select Account Managers",
+        allowClear: true,
+        closeOnSelect: false
+    });
+    
+    // Load Admin Managers
+    function loadAdminManagers() {
+        $.get('/admin/manager-settings/manage-all/available-users?level=admin_manager', function(response) {
+            if (response.status && response.users.length > 0) {
+                displayAdminManagers(response.users);
+            } else {
+                $('#adminManagerTree').html('<div class="text-center text-muted"><p>No Admin Managers found</p></div>');
+            }
+        }).fail(function() {
+            $('#adminManagerTree').html('<div class="text-center text-danger"><p>Error loading Admin Managers</p></div>');
+        });
+    }
+    
+    // Display Admin Managers
+    function displayAdminManagers(adminManagers) {
+        let html = '';
+        adminManagers.forEach(function(adminManager) {
+            html += `
+                <div class="admin-manager-item" data-admin-id="${adminManager.id}">
+                    <div class="admin-manager-header" onclick="toggleCountryManagers(${adminManager.id})">
+                        <div class="admin-manager-name">
+                            ${adminManager.name} (${adminManager.email})
+                            <span class="type-tag admin-tag">Admin Manager</span>
+                        </div>
+                        <button class="expand-btn" id="expand-${adminManager.id}">+</button>
+                    </div>
+                    <div class="country-managers-container" id="country-container-${adminManager.id}">
+                        <div class="text-center p-3">
+                            <div class="spinner-border spinner-border-sm text-primary" role="status"></div>
+                            <span class="ms-2">Loading Country Managers...</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        $('#adminManagerTree').html(html);
+    }
+    
+    // Toggle Country Managers visibility
+    window.toggleCountryManagers = function(adminManagerId) {
+        const container = $(`#country-container-${adminManagerId}`);
+        const btn = $(`#expand-${adminManagerId}`);
+        
+        if (container.hasClass('expanded')) {
+            // Collapse
+            container.removeClass('expanded');
+            btn.removeClass('expanded');
+        } else {
+            // Expand
+            container.addClass('expanded');
+            btn.addClass('expanded');
+            
+            // Load Country Managers if not already loaded
+            if (container.find('.country-manager-item').length === 0) {
+                loadCountryManagers(adminManagerId);
+                loadAdminManagerStats(adminManagerId);
+            }
+        }
+    };
+    
+    // Load Country Managers for a specific Admin Manager
+    function loadCountryManagers(adminManagerId) {
+        const container = $(`#country-container-${adminManagerId}`);
+        
+        // First, get assigned Country Managers from the assignments table
+        $.get(`/admin/manager-settings/manage-all/get-assigned-country-managers?admin_manager_id=${adminManagerId}`, function(response) {
+            if (response.status) {
+                displayCountryManagers(adminManagerId, response.country_managers);
+            } else {
+                container.html('<div class="no-country-managers">No Country Managers assigned yet</div>');
+            }
+        }).fail(function() {
+            container.html('<div class="text-center text-danger p-3">Error loading Country Managers</div>');
+        });
+    }
+    
+    // Load Admin Manager Statistics
+    function loadAdminManagerStats(adminManagerId) {
+        $.get(`/admin/manager-settings/manage-all/get-admin-manager-stats?admin_manager_id=${adminManagerId}`, function(response) {
+            if (response.status) {
+                displayAdminManagerStats(adminManagerId, response.stats);
+            }
+        });
+    }
+    
+    // Display Country Managers
+    function displayCountryManagers(adminManagerId, countryManagers) {
+        const container = $(`#country-container-${adminManagerId}`);
+        
+        let html = '';
+        
+        if (countryManagers.length === 0) {
+            // Show "Add New" button even when no Country Managers are assigned
+            html = `
+                <div class="country-manager-item">
+                    <div class="country-manager-header">
+                        <div class="country-manager-name text-muted">No Country Managers assigned yet</div>
+                        <button class="add-new-btn" onclick="showAddCountryManagerModal(${adminManagerId})">
+                            Add New
+                        </button>
+                    </div>
+                </div>
+            `;
+        } else {
+            // Show existing Country Managers with expandable structure
+            countryManagers.forEach(function(countryManager) {
+                html += `
+                    <div class="country-manager-item">
+                        <div class="country-manager-header" onclick="toggleManagers(${adminManagerId}, ${countryManager.id})">
+                            <div class="country-manager-name">
+                                ${countryManager.name} (${countryManager.email})
+                                <span class="type-tag country-tag">Country Manager</span>
+                            </div>
+                            <button class="expand-btn" id="expand-manager-${adminManagerId}-${countryManager.id}" onclick="event.stopPropagation(); toggleManagers(${adminManagerId}, ${countryManager.id});">+</button>
+                        </div>
+                        <div class="managers-container" id="managers-container-${adminManagerId}-${countryManager.id}">
+                            <div class="text-center p-2">
+                                <div class="spinner-border spinner-border-sm text-primary" role="status"></div>
+                                <span class="ms-2">Loading Account Managers...</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            // Add "Add New" button at the end
+            html += `
+                <div class="country-manager-item">
+                    <div class="country-manager-header">
+                        <div class="country-manager-name text-muted">Add more Country Managers</div>
+                        <button class="add-new-btn" onclick="showAddCountryManagerModal(${adminManagerId})">
+                            Add New
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+        
+        container.html(html);
+    }
+    
+    // Display Admin Manager Statistics
+    function displayAdminManagerStats(adminManagerId, stats) {
+        const container = $(`#country-container-${adminManagerId}`);
+        
+        const statsHtml = `
+            <div class="stats-container">
+                <h5>Admin Manager Statistics</h5>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>${stats.total_traders || 0}</h3>
+                        <p>Total Traders</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>${stats.total_ibs || 0}</h3>
+                        <p>Total IBs</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>$${stats.total_deposit || 0}</h3>
+                        <p>Total Deposit</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>$${stats.total_withdraw || 0}</h3>
+                        <p>Total Withdraw</p>
+                    </div>
+                </div>
+                
+                <div class="revenue-container">
+                    <div class="revenue-header">
+                        <h5>Revenue Reports</h5>
+                        <div class="date-range-picker">
+                            <input type="text" class="form-control" id="date-range-admin-${adminManagerId}" placeholder="Select date range">
+                        </div>
+                    </div>
+                    <div class="revenue-chart" id="revenue-chart-admin-${adminManagerId}">
+                        Revenue chart will be displayed here
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Add stats to the container
+        container.prepend(statsHtml);
+        
+        // Initialize date picker
+        flatpickr(`#date-range-admin-${adminManagerId}`, {
+            mode: "range",
+            dateFormat: "Y-m-d",
+            onChange: function(selectedDates, dateStr, instance) {
+                if (selectedDates.length === 2) {
+                    loadAdminManagerRevenueData(adminManagerId, selectedDates[0], selectedDates[1]);
+                }
+            }
+        });
+        
+        // Load initial revenue data (current month)
+        const now = new Date();
+        const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+        loadAdminManagerRevenueData(adminManagerId, startOfMonth, now);
+    }
+    
+    // Show Add Country Manager Modal
+    window.showAddCountryManagerModal = function(adminManagerId) {
+        currentAdminManagerId = adminManagerId;
+        
+        // Load unassigned Country Managers
+        $.get('/admin/manager-settings/manage-all/available-users?level=country_admin', function(response) {
+            if (response.status) {
+                // Filter out ALL assigned Country Managers (globally)
+                $.get('/admin/manager-settings/manage-all/get-all-assigned-country-managers', function(assignedResponse) {
+                    let assignedIds = [];
+                    if (assignedResponse.status) {
+                        assignedIds = assignedResponse.country_managers.map(cm => cm.id);
+                    }
+                    
+                    const unassignedManagers = response.users.filter(user => !assignedIds.includes(user.id));
+                    
+                    let options = '';
+                    unassignedManagers.forEach(function(manager) {
+                        options += `<option value="${manager.id}">${manager.name} (${manager.email})</option>`;
+                    });
+                    
+                    $('#unassignedCountryManagers').html(options);
+                    $('#unassignedCountryManagers').val(null).trigger('change');
+                    
+                    if (unassignedManagers.length === 0) {
+                        $('#unassignedCountryManagers').html('<option value="" disabled>No unassigned Country Managers available</option>');
+                    }
+                    
+                    $('#addCountryManagerModal').modal('show');
+                });
+            } else {
+                Swal.fire('Error', 'Failed to load Country Managers', 'error');
+            }
+        });
+    };
+    
+    // Toggle Managers visibility
+    window.toggleManagers = function(adminManagerId, countryManagerId) {
+        console.log('toggleManagers called with:', adminManagerId, countryManagerId);
+        const container = $(`#managers-container-${adminManagerId}-${countryManagerId}`);
+        const btn = $(`#expand-manager-${adminManagerId}-${countryManagerId}`);
+        
+        if (container.hasClass('expanded')) {
+            // Collapse
+            container.removeClass('expanded');
+            btn.removeClass('expanded');
+        } else {
+            // Expand
+            container.addClass('expanded');
+            btn.addClass('expanded');
+            
+            // Load Managers if not already loaded
+            if (container.find('.manager-item').length === 0) {
+                console.log('Loading managers for Country Manager:', countryManagerId);
+                loadManagers(adminManagerId, countryManagerId);
+                loadCountryManagerStats(adminManagerId, countryManagerId);
+            }
+        }
+    };
+    
+    // Load Managers for a specific Country Manager
+    function loadManagers(adminManagerId, countryManagerId) {
+        const container = $(`#managers-container-${adminManagerId}-${countryManagerId}`);
+        
+        // Get assigned Managers from the assignments table
+        $.get(`/admin/manager-settings/manage-all/get-assigned-managers?country_manager_id=${countryManagerId}`, function(response) {
+            if (response.status) {
+                displayManagers(adminManagerId, countryManagerId, response.managers);
+            } else {
+                // Even if there's an error, show the "Add New" button
+                displayManagers(adminManagerId, countryManagerId, []);
+            }
+        }).fail(function() {
+            // Even if the request fails, show the "Add New" button
+            displayManagers(adminManagerId, countryManagerId, []);
+        });
+    }
+    
+    // Load Country Manager Statistics
+    function loadCountryManagerStats(adminManagerId, countryManagerId) {
+        $.get(`/admin/manager-settings/manage-all/get-country-manager-stats?country_manager_id=${countryManagerId}`, function(response) {
+            if (response.status) {
+                displayCountryManagerStats(adminManagerId, countryManagerId, response.stats);
+            }
+        });
+    }
+    
+    // Load Admin Manager Revenue Data
+    function loadAdminManagerRevenueData(adminManagerId, startDate, endDate) {
+        $.get(`/admin/manager-settings/manage-all/get-revenue-data`, {
+            admin_manager_id: adminManagerId,
+            start_date: startDate.toISOString().split('T')[0],
+            end_date: endDate.toISOString().split('T')[0]
+        }, function(response) {
+            if (response.status) {
+                updateAdminManagerRevenueChart(adminManagerId, response.data);
+            }
+        });
+    }
+    
+    // Display Managers
+    function displayManagers(adminManagerId, countryManagerId, managers) {
+        const container = $(`#managers-container-${adminManagerId}-${countryManagerId}`);
+        
+        let html = '';
+        
+        if (managers.length === 0) {
+            // Show "Add New" button even when no Managers are assigned
+            html = `
+                <div class="manager-item">
+                    <div class="manager-header">
+                        <div class="manager-name text-muted">No Account Managers assigned yet</div>
+                        <button class="add-new-btn" onclick="showAddManagerModal(${adminManagerId}, ${countryManagerId})">
+                            Add New Account Managers
+                        </button>
+                    </div>
+                </div>
+            `;
+        } else {
+            // Show existing Managers
+            managers.forEach(function(manager) {
+                html += `
+                    <div class="manager-item">
+                        <div class="manager-header" onclick="toggleManagerStats(${adminManagerId}, ${countryManagerId}, ${manager.id})">
+                            <div class="manager-name">
+                                ${manager.name} (${manager.email})
+                                <span class="type-tag account-tag">Account Manager</span>
+                            </div>
+                            <div class="expand-btn" id="expand-btn-${manager.id}">+</div>
+                        </div>
+                        <div class="stats-report-container" id="stats-report-${manager.id}">
+                            <div class="text-center p-3">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            // Add "Add New" button at the end
+            html += `
+                <div class="manager-item">
+                    <div class="manager-header">
+                        <div class="manager-name text-muted">Add more Account Managers</div>
+                        <button class="add-new-btn" onclick="showAddManagerModal(${adminManagerId}, ${countryManagerId})">
+                            Add New Account Managers
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+        
+        container.html(html);
+        console.log('Displayed managers for Country Manager:', countryManagerId, 'Managers:', managers);
+    }
+    
+    // Display Country Manager Statistics
+    function displayCountryManagerStats(adminManagerId, countryManagerId, stats) {
+        const container = $(`#managers-container-${adminManagerId}-${countryManagerId}`);
+        
+        const statsHtml = `
+            <div class="stats-container">
+                <h5>Country Manager Statistics</h5>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>${stats.total_traders || 0}</h3>
+                        <p>Total Traders</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>${stats.total_ibs || 0}</h3>
+                        <p>Total IBs</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>$${stats.total_deposit || 0}</h3>
+                        <p>Total Deposit</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>$${stats.total_withdraw || 0}</h3>
+                        <p>Total Withdraw</p>
+                    </div>
+                </div>
+                
+                <div class="revenue-container">
+                    <div class="revenue-header">
+                        <h5>Revenue Reports</h5>
+                        <div class="date-range-picker">
+                            <input type="text" class="form-control" id="date-range-country-${countryManagerId}" placeholder="Select date range">
+                        </div>
+                    </div>
+                    <div class="revenue-chart" id="revenue-chart-country-${countryManagerId}">
+                        Revenue chart will be displayed here
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Add stats to the container
+        container.prepend(statsHtml);
+        
+        // Initialize date picker
+        flatpickr(`#date-range-country-${countryManagerId}`, {
+            mode: "range",
+            dateFormat: "Y-m-d",
+            onChange: function(selectedDates, dateStr, instance) {
+                if (selectedDates.length === 2) {
+                    loadCountryManagerRevenueData(countryManagerId, selectedDates[0], selectedDates[1]);
+                }
+            }
+        });
+        
+        // Load initial revenue data (current month)
+        const now = new Date();
+        const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+        loadCountryManagerRevenueData(countryManagerId, startOfMonth, now);
+    }
+    
+    // Toggle Manager Statistics
+    window.toggleManagerStats = function(adminManagerId, countryManagerId, managerId) {
+        event.stopPropagation();
+        const statsContainer = $(`#stats-report-${managerId}`);
+        const expandBtn = $(`#expand-btn-${managerId}`);
+        
+        if (statsContainer.hasClass('expanded')) {
+            // Collapse
+            statsContainer.removeClass('expanded');
+            expandBtn.removeClass('expanded');
+        } else {
+            // Expand and load stats
+            statsContainer.addClass('expanded');
+            expandBtn.addClass('expanded');
+            loadManagerStats(adminManagerId, countryManagerId, managerId);
+        }
+    };
+    
+    // Load Manager Statistics
+    function loadManagerStats(adminManagerId, countryManagerId, managerId) {
+        // Load statistics for this manager
+        $.get(`/admin/manager-settings/manage-all/get-manager-stats?manager_id=${managerId}`, function(response) {
+            if (response.status) {
+                displayManagerStats(adminManagerId, countryManagerId, managerId, response.stats);
+            } else {
+                Swal.fire('Error', 'Failed to load manager statistics', 'error');
+            }
+        });
+    }
+    
+    // Display Manager Statistics
+    function displayManagerStats(adminManagerId, countryManagerId, managerId, stats) {
+        const container = $(`#stats-report-${managerId}`);
+        
+        const statsHtml = `
+            <div class="stats-container">
+                <h5>Statistics for Account Manager</h5>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>${stats.total_traders || 0}</h3>
+                        <p>Total Traders</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>${stats.total_ibs || 0}</h3>
+                        <p>Total IBs</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>$${stats.total_deposit || 0}</h3>
+                        <p>Total Deposit</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>$${stats.total_withdraw || 0}</h3>
+                        <p>Total Withdraw</p>
+                    </div>
+                </div>
+                
+                <div class="revenue-container">
+                    <div class="revenue-header">
+                        <h5>Revenue Reports</h5>
+                        <div class="date-range-picker">
+                            <input type="text" class="form-control" id="date-range-${managerId}" placeholder="Select date range">
+                        </div>
+                    </div>
+                    <div class="revenue-chart" id="revenue-chart-${managerId}">
+                        Revenue chart will be displayed here
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Replace loading spinner with stats
+        container.html(statsHtml);
+        
+        // Initialize date picker
+        flatpickr(`#date-range-${managerId}`, {
+            mode: "range",
+            dateFormat: "Y-m-d",
+            onChange: function(selectedDates, dateStr, instance) {
+                if (selectedDates.length === 2) {
+                    loadRevenueData(managerId, selectedDates[0], selectedDates[1]);
+                }
+            }
+        });
+        
+        // Load initial revenue data (current month)
+        const now = new Date();
+        const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
+        loadRevenueData(managerId, startOfMonth, now);
+    }
+    
+    // Load Revenue Data
+    function loadRevenueData(managerId, startDate, endDate) {
+        $.get(`/admin/manager-settings/manage-all/get-revenue-data`, {
+            manager_id: managerId,
+            start_date: startDate.toISOString().split('T')[0],
+            end_date: endDate.toISOString().split('T')[0]
+        }, function(response) {
+            if (response.status) {
+                updateRevenueChart(managerId, response.data);
+            }
+        });
+    }
+    
+    // Load Country Manager Revenue Data
+    function loadCountryManagerRevenueData(countryManagerId, startDate, endDate) {
+        $.get(`/admin/manager-settings/manage-all/get-revenue-data`, {
+            country_manager_id: countryManagerId,
+            start_date: startDate.toISOString().split('T')[0],
+            end_date: endDate.toISOString().split('T')[0]
+        }, function(response) {
+            if (response.status) {
+                updateCountryManagerRevenueChart(countryManagerId, response.data);
+            }
+        });
+    }
+    
+    // Update Revenue Chart
+    function updateRevenueChart(managerId, data) {
+        const chartContainer = $(`#revenue-chart-${managerId}`);
+        // Here you would implement the actual chart rendering
+        // For now, we'll just show the data
+        chartContainer.html(`
+            <div class="text-center">
+                <h6>Revenue Data</h6>
+                <p>Deposits: $${data.deposits || 0}</p>
+                <p>Withdrawals: $${data.withdrawals || 0}</p>
+                <p>Net: $${(data.deposits || 0) - (data.withdrawals || 0)}</p>
+            </div>
+        `);
+    }
+    
+    // Update Admin Manager Revenue Chart
+    function updateAdminManagerRevenueChart(adminManagerId, data) {
+        const chartContainer = $(`#revenue-chart-admin-${adminManagerId}`);
+        chartContainer.html(`
+            <div class="text-center">
+                <h6>Revenue Data</h6>
+                <p>Deposits: $${data.deposits || 0}</p>
+                <p>Withdrawals: $${data.withdrawals || 0}</p>
+                <p>Net: $${(data.deposits || 0) - (data.withdrawals || 0)}</p>
+            </div>
+        `);
+    }
+    
+    // Update Country Manager Revenue Chart
+    function updateCountryManagerRevenueChart(countryManagerId, data) {
+        const chartContainer = $(`#revenue-chart-country-${countryManagerId}`);
+        chartContainer.html(`
+            <div class="text-center">
+                <h6>Revenue Data</h6>
+                <p>Deposits: $${data.deposits || 0}</p>
+                <p>Withdrawals: $${data.withdrawals || 0}</p>
+                <p>Net: $${(data.deposits || 0) - (data.withdrawals || 0)}</p>
+            </div>
+        `);
+    }
+    
+    // Show Add Manager Modal
+    window.showAddManagerModal = function(adminManagerId, countryManagerId) {
+        console.log('showAddManagerModal called with:', adminManagerId, countryManagerId);
+        currentAdminManagerId = adminManagerId;
+        currentCountryManagerId = countryManagerId;
+        
+        // Load unassigned Managers (type 5 - Account Managers)
+        $.get('/admin/manager-settings/manage-all/available-users?level=manager', function(response) {
+            console.log('Available users response:', response);
+            if (response.status) {
+                // Filter out ALL assigned Managers (globally)
+                $.get('/admin/manager-settings/manage-all/get-all-assigned-managers', function(assignedResponse) {
+                    console.log('Assigned managers response:', assignedResponse);
+                    let assignedIds = [];
+                    if (assignedResponse.status) {
+                        assignedIds = assignedResponse.managers.map(m => m.id);
+                    }
+                    
+                    const unassignedManagers = response.users.filter(user => !assignedIds.includes(user.id));
+                    console.log('Unassigned managers:', unassignedManagers);
+                    
+                    let options = '';
+                    unassignedManagers.forEach(function(manager) {
+                        options += `<option value="${manager.id}">${manager.name} (${manager.email}) - ${manager.group_name || 'No Group'}</option>`;
+                    });
+                    
+                    $('#unassignedManagers').html(options);
+                    $('#unassignedManagers').val(null).trigger('change');
+                    
+                    if (unassignedManagers.length === 0) {
+                        $('#unassignedManagers').html('<option value="" disabled>No unassigned Account Managers available</option>');
+                    }
+                    
+                    $('#addManagerModal').modal('show');
+                });
+            } else {
+                console.error('Failed to load managers:', response);
+                Swal.fire('Error', 'Failed to load Account Managers', 'error');
+            }
+        });
+    };
+    
+    // Handle Country Manager assignment button click
+    $('#assignCountryManagers').on('click', function() {
+        const selectedIds = $('#unassignedCountryManagers').val();
+        
+        if (!selectedIds || selectedIds.length === 0) {
+            Swal.fire('Error', 'Please select at least one Country Manager', 'error');
+            return;
+        }
+        
+        // Submit the assignment
+        $.post('/admin/manager-settings/manage-all/assign-country-admins', {
+            admin_manager_id: currentAdminManagerId,
+            country_admin_ids: selectedIds,
+            _token: $('meta[name="csrf-token"]').attr('content')
+        }, function(response) {
+            if (response.status) {
+                Swal.fire('Success', response.message, 'success');
+                $('#addCountryManagerModal').modal('hide');
+                
+                // Refresh the Country Managers list
+                loadCountryManagers(currentAdminManagerId);
+            } else {
+                Swal.fire('Error', response.message, 'error');
+            }
+        }).fail(function() {
+            Swal.fire('Error', 'Failed to assign Country Managers', 'error');
+        });
+    });
+    
+    // Handle Manager assignment button click
+    $('#assignManagers').on('click', function() {
+        const selectedIds = $('#unassignedManagers').val();
+        
+        if (!selectedIds || selectedIds.length === 0) {
+            Swal.fire('Error', 'Please select at least one Manager', 'error');
+            return;
+        }
+        
+        // Submit the assignment
+        $.post('/admin/manager-settings/manage-all/assign-managers', {
+            country_manager_id: currentCountryManagerId,
+            manager_ids: selectedIds,
+            _token: $('meta[name="csrf-token"]').attr('content')
+        }, function(response) {
+            if (response.status) {
+                Swal.fire('Success', response.message, 'success');
+                $('#addManagerModal').modal('hide');
+                
+                // Refresh the Managers list
+                loadManagers(currentAdminManagerId, currentCountryManagerId);
+            } else {
+                Swal.fire('Error', response.message, 'error');
+            }
+        }).fail(function() {
+            Swal.fire('Error', 'Failed to assign Managers', 'error');
+        });
+    });
+});
+</script>
+@endsection

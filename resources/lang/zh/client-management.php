@@ -1,0 +1,31 @@
+<?php
+//for china
+return[
+    'Client Management'=>'客戶管理',
+    'Home'=>'家',
+    'Trader Admin'=>'交易者管理員',
+    'Report Filter'=>'報告過濾器',
+    'Export'=>'出口',
+    'Add new Trader'=>'添加新交易者',
+    'Search By Finance'=>'按財務搜索',
+    'All'=>'全部',
+    'Deposit'=>'訂金',
+    'Withdraw'=>'提取',
+    'Search By Category'=>'按類別搜索',
+    'Verification Status'=>'驗證狀態',
+    'Pending'=>'待辦的',
+    'verified'=>'已驗證',
+    'unverified'=>'未經驗證',
+    'Account Manager'=>'客戶經理',
+    'Date'=>'日期',
+    'Reset'=>'重置',
+    'Filter'=>'篩選',
+    'Name'=>'姓名',
+    'Email'=>'電子郵件',
+    'Phone'=>'電話',
+    'Joined'=>'已加入',
+    'Status'=>'地位',
+    'Actions'=>'行動',
+    'Trader Clients'=>'交易者客戶',
+
+];

@@ -1,0 +1,53 @@
+<?php
+//for portuguese
+//group manager
+
+
+return[
+'Group Manager'=>ucwords('Gerente de Grupo'),
+'Home'=>ucwords('Casa'),
+'Create New Group'=>ucwords('Criar novo grupo'),
+'Note'=>ucwords('Nota'),
+'Important notes please read'=>ucwords('Remarques importantes, veuillez lire'),
+'Put raw group same as you have on your trading server'=>ucwords('Coloque o grupo bruto igual ao que você tem no seu servidor de negociação'),
+'You can click the call group button to get your groups from the trading server'=>ucwords('Você pode clicar no botão de grupo de chamadas para obter seus grupos do servidor de negociação'),
+'You can active inactive group from the group management section'=>ucwords('Você pode ativar o grupo inativo na seção de gerenciamento de grupo'),
+'Put account type that you want to see on CRM adding groups won\'t make this visible on CRM you have to activate them from the group management section'=>ucwords('Colocar o tipo de conta que você deseja ver no CRM, adicionar grupos não tornará isso visível no CRM, você deve ativá-los na seção de gerenciamento de grupos'),
+'Vertical Form'=>ucwords('Forma Vertical'),
+'Trading Platform'=>ucwords('Plataforma de negociação'),
+'Book'=>ucwords('Livro'),
+'Select A Book'=>ucwords('Selecione um livro'),
+'Raw Group Name'=>ucwords('Nome bruto do grupo'),
+'Group Display Name'=>ucwords('Nome de exibição do grupo'),
+'Account Type'=>ucwords('tipo de conta'),
+'Demo'=>ucwords('Demonstração'),
+'Live'=>ucwords('Viver'),
+'Max Leverage'=>ucwords('Alavancagem máxima'),
+'Select Max Leverage'=>ucwords('Selecione Alavancagem Máxima'),
+'Minimum Deposit'=>ucwords('Depósito mínimo'),
+'Deposit Type'=>ucwords('Tipo de depósito'),
+'One Time'=>ucwords('Um tempo'),
+'Every Time'=>ucwords('Toda vez'),
+'Visibility'=>ucwords('Visibilidade'),
+'Visible'=>ucwords('Visível'),
+'Hidden'=>ucwords('Escondido'),
+'Submit'=>ucwords('Enviar'),
+'Select Max Leverage'=>ucwords('Selecione Alavancagem Máxima'),
+'Client Groups'=>ucwords('Grupos de clientes'),
+'Client Group Manager'=>ucwords('Gerente de Grupo de Clientes'),
+'Trading Platform'=>ucwords('Plataforma de negociação'),
+'Mask Group Name'=>ucwords('Nome do grupo de máscaras'),
+'Raw Group Name'=>ucwords('Nome bruto do grupo'),
+'Account Type Name'=>ucwords('Nome do tipo de conta'),
+'Minimum Deposit'=>ucwords('Depósito mínimo'),
+'Action'=>ucwords('Ação'),
+'Ib Groups'=>ucwords('Grupos Ib'),
+'Ib Group Settings'=>ucwords('Configurações do Grupo Ib'),
+'Group Name'=>ucwords('Nome do grupo'),
+'Status'=>ucwords('Status'),
+'Created Date'=>ucwords('Data de criação'),
+'Select A Trading Platform'=>ucwords('Selecione uma plataforma de negociação'),
+'Select Deposit Type'=>ucwords('Selecione o tipo de depósito'),
+
+
+];

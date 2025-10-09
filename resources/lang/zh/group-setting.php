@@ -1,0 +1,53 @@
+<?php
+//for china
+//group manager
+
+
+return[
+'Group Manager'=>'集團經理',
+'Home'=>'家',
+'Create New Group'=>'創建新組',
+'Note'=>'筆記',
+'Important notes please read'=>'重要說明請閱讀',
+'Put raw group same as you have on your trading server'=>'將原始組與您的交易服務器上的相同',
+'You can click the call group button to get your groups from the trading server'=>'您可以點擊呼叫群組按鈕從交易服務器獲取您的群組',
+'You can active inactive group from the group management section'=>'您可以從組管理部分激活非活動組',
+'Put account type that you want to see on CRM adding groups won\'t make this visible on CRM you have to activate them from the group management section'=>'將您想在 CRM 添加組上看到的帳戶類型不會使其可見 在 CRM 上，您必須從組管理部分激活它們',
+'Vertical Form'=>'垂直形式',
+'Trading Platform'=>'交易平台',
+'Book'=>'書',
+'Select A Book'=>'選擇一本書',
+'Raw Group Name'=>'原始組名稱',
+'Group Display Name'=>'組顯示名稱',
+'Account Type'=>'帳戶類型',
+'Demo'=>'演示',
+'Live'=>'居住',
+'Max Leverage'=>'最大槓桿',
+'Select Max Leverage'=>'選擇最大槓桿',
+'Minimum Deposit'=>'最低存款',
+'Deposit Type'=>'存款類型',
+'One Time'=>'一度',
+'Every Time'=>'每次',
+'Visibility'=>'能見度',
+'Visible'=>'可見的',
+'Hidden'=>'隱',
+'Submit'=>'提交',
+'Select Max Leverage'=>'選擇最大槓桿',
+'Client Groups'=>'客戶群',
+'Client Group Manager'=>'客戶群經理',
+'Trading Platform'=>'交易平台',
+'Mask Group Name'=>'蒙版組名稱',
+'Raw Group Name'=>'原始組名稱',
+'Account Type Name'=>'賬戶類型名稱',
+'Minimum Deposit'=>'最低存款',
+'Action'=>'行動',
+'Ib Groups'=>'IB組',
+'Ib Group Settings'=>'IB組設置',
+'Group Name'=>'團隊名字',
+'Status'=>'地位',
+'Created Date'=>'創建日期',
+'Select A Trading Platform'=>'選擇交易平台',
+'Select Deposit Type'=>'選擇存款類型',
+
+
+];

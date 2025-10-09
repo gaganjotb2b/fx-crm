@@ -1,0 +1,31 @@
+<?php
+//for german
+return[
+    'Client Management'=>ucwords('Client-Management'),
+    'Home'=>ucwords('Heim'),
+    'Trader Admin'=>ucwords('Händler-Admin'),
+    'Report Filter'=>ucwords('Berichtsfilter'),
+    'Export'=>ucwords('Export'),
+    'Add new Trader'=>ucwords('Neuen Händler hinzufügen'),
+    'Search By Finance'=>ucwords('Suche nach Finanzen'),
+    'All'=>ucwords('Alle'),
+    'Deposit'=>ucwords('Kaution'),
+    'Withdraw'=>ucwords('Abheben'),
+    'Search By Category'=>ucwords('Suche nach Kategorie'),
+    'Verification Status'=>ucwords('Überprüfungsstatus'),
+    'Pending'=>ucwords('Ausstehend'),
+    'verified'=>ucwords('verifiziert'),
+    'unverified'=>ucwords('unbestätigt'),
+    'Account Manager'=>ucwords('Account Manager'),
+    'Date'=>ucwords('Datum'),
+    'Reset'=>ucwords('Zurücksetzen'),
+    'Filter'=>ucwords('Filter'),
+    'Name'=>ucwords('Name'),
+    'Email'=>ucwords('Email'),
+    'Phone'=>ucwords('Telefon'),
+    'Joined'=>ucwords('Trat bei'),
+    'Status'=>ucwords('Status'),
+    'Actions'=>ucwords('Aktionen'),
+    'Trader Clients'=>ucwords('Trader-Kunden'),
+
+];

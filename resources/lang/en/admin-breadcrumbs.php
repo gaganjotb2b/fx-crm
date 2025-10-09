@@ -1,0 +1,37 @@
+<?php
+
+return [
+    'manager_analysis' => 'Manager Analysis',
+    'home' => ucwords('home'),
+    'manager_settings' => ucwords('Manager Settings'),
+    'manage_request' => ucwords('Manage Request'),
+    'request' => ucwords('Deposit Request'),
+    'withdraw-reports' => ucwords('Withdraw Request Report'),
+    'withdraw_req' => ucwords('Withdraw Request'),
+    'balance_transfer' => ucwords('Balance Transfer Request'),
+    'ib_req' => ucwords('IB transfer request'),
+    'ib_with' => ucwords('IB withdraw request'),
+    'finance_report' => ucwords('Finance Report'),
+    'finance' => ucwords('Finance'),
+    'ib_analysis' => ucwords('IB Analysis'),
+    'activity_log' => ucwords('Activity Log'),
+    'trade_commission_status' => ucwords('trade commission status'),
+
+    'internal_fund' => ucwords('internal fund transfer'),
+    'fund_transfer' => ucwords('fund transfer'),
+    'external_fund' => ucwords('external fund transfer'),
+    'ib_withdraw' => ucwords('report'),
+    'withdraw' => ucwords('Withdraw Request Reports'),
+    'reports' => ucwords('reports'),
+    'deposit_report' => ucwords('deposit report'),
+    'trader_deposit' => ucwords('trader deposit report'),
+    'ib_fund' => ucwords('IB fund transfer'),
+    'voucher_report' => ucwords('voucher report'),
+    'add_voucher' => ucwords('voucher generate'),
+    'Ib.ib_withdraw' => ucwords('IB Withdraw'),
+    'Trader.ib_withdraw' => ucwords('Trader Withdraw'),
+    'kyc_report' => ucwords('KYC report'),
+    'kyc_request' => ucwords('KYC request'),
+    'ledger_report' => ucwords('Ledger Report'),
+    'individual_ledger_report' => ucwords('Individual Ledger Report')
+];

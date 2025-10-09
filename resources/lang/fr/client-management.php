@@ -1,0 +1,31 @@
+<?php
+//for french
+return[
+    'Client Management'=>ucwords('La gestion des clients'),
+    'Home'=>ucwords('Maison'),
+    'Trader Admin'=>ucwords('Administrateur commerçant'),
+    'Report Filter'=>ucwords('Filtre de rapport'),
+    'Export'=>ucwords('Exporter'),
+    'Add new Trader'=>ucwords('Ajouter un nouveau commerçant'),
+    'Search By Finance'=>ucwords('Rechercher par financement'),
+    'All'=>ucwords('Tout'),
+    'Deposit'=>ucwords('Verser'),
+    'Withdraw'=>ucwords('Se désister'),
+    'Search By Category'=>ucwords('Rechercher par catégorie'),
+    'Verification Status'=>ucwords('Statut de vérification'),
+    'Pending'=>ucwords('En attente'),
+    'verified'=>ucwords('vérifié'),
+    'unverified'=>ucwords('non vérifié'),
+    'Account Manager'=>ucwords('Gestionnaire de compte'),
+    'Date'=>ucwords('Date'),
+    'Reset'=>ucwords('Réinitialiser'),
+    'Filter'=>ucwords('Filtre'),
+    'Name'=>ucwords('Nom'),
+    'Email'=>ucwords('E-mail'),
+    'Phone'=>ucwords('Téléphoner'),
+    'Joined'=>ucwords('Rejoint'),
+    'Status'=>ucwords('Statut'),
+    'Actions'=>ucwords('Actions'),
+    'Trader Clients'=>ucwords('Clients commerçants'),
+
+];

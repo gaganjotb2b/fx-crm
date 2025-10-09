@@ -1,0 +1,47 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        if (!Schema::hasTable('client_groups')) {
+            Schema::create('client_groups', function (Blueprint $table) {
+                $table->engine = "InnoDB";
+                $table->id();
+                $table->string('group_name',64)->comment('raw group name');
+                $table->string('group_id',32)->comment('display group name');
+                $table->string('server',20)->comment('mt4, mt5, UTIP');
+                $table->string('account_category',64)->nullable()->comment('Category like as demo, live');
+                $table->json('leverage')->nullable()->comment('Store Json type data');
+                $table->integer('max_leverage');
+                $table->string('book',32);
+                $table->float('min_deposit',10,2);
+                $table->string('deposit_type')->comment('one time, every time');
+                $table->boolean('active_status')->default(1)->comment('0 for disabled, 1 for active');
+                $table->integer('stat')->default(1);
+                $table->string('visibility')->default('hidden')->comment('hidden, visible');
+                $table->unsignedBigInteger('created_by')->nullable();
+                $table->timestamps();
+            });
+        }
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('client_groups');
+    }
+};

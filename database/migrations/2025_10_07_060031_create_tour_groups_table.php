@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('tour_groups', function (Blueprint $table) {
+            $table->id();
+            $table->string('group_name');
+            $table->string('round')->nullable();
+            $table->unsignedBigInteger('tournament_id')->nullable();
+            $table->integer('max_participants')->nullable();
+            $table->dateTime('start_trading')->nullable();
+            $table->integer('duration')->nullable(); // e.g., in days or hours
+            $table->string('status')->default('pending');
+            $table->timestamps(); // created_at and updated_at
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('tour_groups');
+    }
+};

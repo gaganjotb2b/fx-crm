@@ -1,0 +1,25 @@
+
+php artisan db:seed
+
+
+DB::getSchemaBuilder()->getColumnListing('trading_accounts');
+tnzaznfknbjsuluu  gaganjotbase2brand app password 
+
+
+
+http://127.0.0.1:8000/
+dev2base2brand@gmail.com
+Sales01@2021
+
+
+
+
+
+http://127.0.0.1:8000/ib_login
+default_ib@laravel.net
+A12345
+
+
+http://127.0.0.1:8000/admin_login
+super_admin@laravel.net
+A12345

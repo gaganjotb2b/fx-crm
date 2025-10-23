@@ -105,4 +105,4 @@
     <!-- END: Page JS-->
 </body>
 
-</html><?php /**PATH C:\Users\b2b\Downloads\crm\resources\views/layouts/trader-auth.blade.php ENDPATH**/ ?>
+</html><?php /**PATH I:\code\fxcrm\fx\crm-new-laravel\resources\views/layouts/trader-auth.blade.php ENDPATH**/ ?>

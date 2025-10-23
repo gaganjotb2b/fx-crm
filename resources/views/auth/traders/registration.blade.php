@@ -1037,7 +1037,7 @@
 @section('content')
 <div class="row">
     <div class="col-12 text-center">
-        <h3 class="mt-5">Build Your Profile</h3>
+        <h3 class="mt-5">Build Your Profilesss q</h3>
         <h5 class="text-secondary font-weight-normal">This information will let us know more about you.</h5>
         <div class="multisteps-form mb-5">
            
@@ -1134,14 +1134,14 @@
                                     <div class="col-12 col-sm-6 text-start">
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input class="multisteps-form__input form-control" type="email" name="email" placeholder="Eg. tomson@example.com" />
+                                            <input class="multisteps-form__input form-control" type="email" name="email" placeholder="Eg. tomson@example.com4" />
                                         </div>
                                     </div>
                                     <!-- confirm email -->
                                     <div class="col-12 col-sm-6 text-start">
                                         <div class="form-group">
                                             <label>Confirm Email</label>
-                                            <input class="multisteps-form__input form-control" type="email" name="confirm_email" placeholder="Eg. tomson@example.com" />
+                                            <input class="multisteps-form__input form-control" type="email" name="confirm_email" placeholder="Eg. tomson@example.com4" />
                                         </div>
                                     </div>
                                     

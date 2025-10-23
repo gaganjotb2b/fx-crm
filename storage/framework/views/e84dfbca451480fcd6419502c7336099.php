@@ -64,4 +64,4 @@ $footerLinks = FooterLink::select()->first();
             </div>
         </div>
     </div>
-</footer><?php /**PATH C:\Users\b2b\Downloads\crm\resources\views/layouts/login-footer.blade.php ENDPATH**/ ?>
+</footer><?php /**PATH I:\code\fxcrm\fx\crm-new-laravel\resources\views/layouts/login-footer.blade.php ENDPATH**/ ?>

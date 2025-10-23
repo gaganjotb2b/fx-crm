@@ -201,7 +201,7 @@ return [
     'this-information-will-let-us-know-more-about-you' => ucwords('This information will let us know more about you.'),
     'lets-start-with-the-basic-information' => ucwords('Lets start with the basic information'),
     'let-us-know-your-name-and-email-address-use-an-address-you-don\'t-mind-other-users-contacting-you-at' => ucwords('Let us know your name and email address. Use an address you don\'t mind other users contacting you at'),
-    'first-name' => ucwords('First Name'),
+    'first-name' => ucwords('First Name1'),
     'last-name' => ucwords('Last Name'),
     'email-address' => ucwords('Email Address'),
     'next' => ucwords('Next'),

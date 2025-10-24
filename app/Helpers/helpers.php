@@ -25,6 +25,7 @@ function get_admin_logo()
 {
     $logo = "";
     $system_data = CrmLogo::select()->first();
+    // dd("$system_data",$system_data);
     $themes = ThemeSetup::where('use_for', 'admin')->first();
     if ($themes && $system_data) {
         if ($themes->theme_version === 'light-layout') {
@@ -47,7 +48,7 @@ function get_admin_logo()
             }
         }
     } else {
-        $logo = asset('admin-assets/app-assets/images/logo/logo.png');
+        $logo = asset('admin-assets/app-assets/images/logo/Logo.webp');
     }
     return ($logo);
 }
@@ -78,12 +79,12 @@ function get_user_logo()
                 }
             }
         } else {
-            $logo = asset('admin-assets/app-assets/images/logo/logo.png');
+            $logo = asset('admin-assets/app-assets/images/logo/Logo.webp');
         }
         return ($logo);
     } catch (\Throwable $th) {
         //throw $th;
-        return asset('admin-assets/app-assets/images/logo/logo.png');
+        return asset('admin-assets/app-assets/images/logo/Logo.webp');
     }
 }
 // functions for get theme

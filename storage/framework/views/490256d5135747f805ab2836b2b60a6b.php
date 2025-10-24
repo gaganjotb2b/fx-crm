@@ -1,17 +1,17 @@
- @extends('layouts.lock-layout')
- @section('title', 'Trader Lock Screen')
- @section('style')
+ 
+ <?php $__env->startSection('title', 'Trader Lock Screen'); ?>
+ <?php $__env->startSection('style'); ?>
  <!-- extra style is here -->
- @stop
- @section('content')
+ <?php $__env->stopSection(); ?>
+ <?php $__env->startSection('content'); ?>
 
  <!-- new code -->
  <div class="card py-lg-3">
      <div class="card-body text-center">
          <div class="info mb-4">
-             <img class="avatar avatar-xxl bg-gradient-dark" alt="Profile photo" src="{{ $user_profile_photo }}">
+             <img class="avatar avatar-xxl bg-gradient-dark" alt="Profile photo" src="<?php echo e($user_profile_photo); ?>">
          </div>
-         <h4 class="mb-0 font-weight-bolder">{{ucwords($user_name)}}</h4>
+         <h4 class="mb-0 font-weight-bolder"><?php echo e(ucwords($user_name)); ?></h4>
          <span class="auth-user-activity">
              Last Activity:
              <span class="badge badge-dark">
@@ -21,10 +21,10 @@
              </span>
          </span>
          <p class="mb-4">Enter password to unlock your account.</p>
-         <form action="{{ route('trader.lock.screen') }}" method="POST" enctype="multipart/form-data" role="form" id="lock_sreen_form">
-             @csrf
-             <input type="hidden" name="user_id" value="{{ $user_id }}">
-             <input type="hidden" name="current_page" value="{{ $current_page }}">
+         <form action="<?php echo e(route('trader.lock.screen')); ?>" method="POST" enctype="multipart/form-data" role="form" id="lock_sreen_form">
+             <?php echo csrf_field(); ?>
+             <input type="hidden" name="user_id" value="<?php echo e($user_id); ?>">
+             <input type="hidden" name="current_page" value="<?php echo e($current_page); ?>">
              <div class="mb-3">
                  <input type="password" class="form-control bg-gradient-primary" name="password" placeholder="Password" id="signInPassword" aria-label="password">
              </div>
@@ -34,8 +34,8 @@
          </form>
      </div>
  </div>
- @stop
- @section('page-js')
+ <?php $__env->stopSection(); ?>
+ <?php $__env->startSection('page-js'); ?>
  <script>
      var sec = -1;
 
@@ -60,4 +60,5 @@
          }
      }
  </script>
- @stop
+ <?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.lock-layout', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH I:\code\fxcrm\fx\crm-new-laravel\resources\views/auth/lock-screen.blade.php ENDPATH**/ ?>

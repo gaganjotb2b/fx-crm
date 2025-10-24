@@ -23,3 +23,8 @@ A12345
 http://127.0.0.1:8000/admin_login
 super_admin@laravel.net
 A12345
+
+
+https://fliptrade-admin-11go.vercel.app/
+admin@gmail.com
+Admin@1234

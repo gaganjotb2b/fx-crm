@@ -89,7 +89,7 @@ class OpenDemoAccountService
     
     
             $result = $mt5_api->execute($action, $meta_data);
-    
+            // dd("result form openDemoAccount",$result);
             if (!isset($result['success']) || !$result['success']) {
                 return ['status' => false, 'message' => 'API Connection failed!'];
             }

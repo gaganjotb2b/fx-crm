@@ -262,15 +262,16 @@ class OpenDemoTradingAccountController extends Controller
                 'account_type' => 'required',
                 'leverage' => 'required',
             ];
-
             $validator = Validator::make($request->all(), $validation_rules);
             if ($validator->fails()) {
+                // dd("validation fails");
                 return Response::json([
                     'status' => false,
-                    'message' => 'Please fix the followin errors!',
+                    'message' => 'Please fix the following errors!',
                     'errors' => $validator->errors(),
                 ]);
             }
+            
             $result = OpenDemoAccountService::open_demo_account([
                 'user_id' => auth()->user()->id,
                 'group_id' => decrypt($request->account_type),
@@ -278,6 +279,7 @@ class OpenDemoTradingAccountController extends Controller
                 'platform' => $request->platform,
                 // 'is_register' => false,
             ]);
+            // dd("validation done ",$result);
             return Response::json($result);
         } catch (\Throwable $th) {
             //throw $th;
